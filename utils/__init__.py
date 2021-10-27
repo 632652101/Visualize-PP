@@ -8,8 +8,10 @@ def load_image(image_path):
 
 
 def apply_transforms(image: Image.Image, size=224) -> paddle.Tensor:
+
     if not isinstance(image, Image.Image):
         raise Exception("Type error! at func apply_transforms")
+
     means = [0.485, 0.456, 0.406]
     stds = [0.229, 0.224, 0.225]
 

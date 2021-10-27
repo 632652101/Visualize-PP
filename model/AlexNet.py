@@ -15,7 +15,6 @@
 import paddle
 import paddle.nn as nn
 
-
 __all__ = ['AlexNet', 'alexnet']
 
 
@@ -23,7 +22,6 @@ class AlexNet(nn.Layer):
     def __init__(self, num_classes=1000):
         super(AlexNet, self).__init__()
         self.input_grad = None
-
         self.features = nn.Sequential(
             nn.Conv2D(3, 64, kernel_size=11, stride=4, padding=2),
             nn.ReLU(),
@@ -41,19 +39,19 @@ class AlexNet(nn.Layer):
         )
         self.avgpool = nn.AdaptiveAvgPool2D((6, 6))
         self.classifier = nn.Sequential(
-            nn.Dropout(),
+            nn.Dropout(p=0),
             nn.Linear(256 * 6 * 6, 4096),
             nn.ReLU(),
-            nn.Dropout(),
+            nn.Dropout(p=0),
             nn.Linear(4096, 4096),
             nn.ReLU(),
             nn.Linear(4096, num_classes),
         )
 
-    def forward(self, x: paddle.Tensor):
-        # input hook
+    def forward(self, x):
         def _record_gradients(grad):
             self.input_grad = grad.detach().cpu().numpy()
+
         x.register_hook(_record_gradients)
 
         x = self.features(x)
@@ -73,6 +71,6 @@ def alexnet(pretrained=False, **kwargs):
     """
     model = AlexNet(**kwargs)
     if pretrained:
-        state_dict = paddle.load("weights/alexnet-torch2paddle.pdparams")
+        state_dict = paddle.load("weights/alexnet-paddle.pdparams")
         model.set_dict(state_dict)
     return model
