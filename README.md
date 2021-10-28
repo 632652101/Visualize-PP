@@ -12,27 +12,77 @@ Deep Inside Convolutional Networks 这篇论文是由Karen Simonyan等人提出�
 
 # 二、复现结果
 
-paddle：
+| torch:                                     |
+| ------------------------------------------ |
+| ![torch](images/airdale_terrier_torch.jpg) |
+| paddle:                                    |
+| ![paddle](images/airdale_terrier_pp.jpg)   |
 
-![CleanShot 2021-10-25 at 17.58.33@2x](/Users/mac/Library/Application Support/CleanShot/media/media_fMyM35IVuV/CleanShot 2021-10-25 at 17.58.33@2x.png)
-
-torch:
-
-![CleanShot 2021-10-25 at 18.05.48@2x](/Users/mac/Library/Application Support/CleanShot/media/media_aFtqTzFDYi/CleanShot 2021-10-25 at 18.05.48@2x.png)
-
-
-
-paddle：
-
-![CleanShot 2021-10-25 at 17.58.25@2x](/Users/mac/Library/Application Support/CleanShot/media/media_QjhI9SU1J7/CleanShot 2021-10-25 at 17.58.25@2x.png)
-
-torch
-
-![CleanShot 2021-10-25 at 18.05.41@2x](/Users/mac/Library/Application Support/CleanShot/media/media_Tq3IRJlw7w/CleanShot 2021-10-25 at 18.05.41@2x.png)
+测试图像存放在 content/images/ 下，可视化图像存放在images/ 下，可视化图像的对比结果存放在 logs/ 下。
 
 
 
-![CleanShot 2021-10-25 at 17.58.10@2x](/Users/mac/Library/Application Support/CleanShot/media/media_hCdoeT4bR7/CleanShot 2021-10-25 at 17.58.10@2x.png)
+# 三、环境依赖
 
-![CleanShot 2021-10-25 at 18.05.33@2x](/Users/mac/Library/Application Support/CleanShot/media/media_mfeWCNCqeP/CleanShot 2021-10-25 at 18.05.33@2x.png)
+* 硬件：GPU、CPU
+* 框架：
+  * PaddlePaddle >= 2.00
+
+
+
+# 四、快速开始
+
+### Step1： clone
+
+```bash
+# clone this repo
+git clone https://github.com/632652101/Visualize-PP.git
+cd Visualize-PP
+exprot PYTHONPATH=./
+```
+
+
+
+### Step2：安装依赖
+
+```bash
+pip install torch
+pip install paddlepaddle
+```
+
+
+
+### Step3：下载权重文件
+
+AlexNet的模型权重文件[在此](https://pan.baidu.com/s/1HkRrEsjpn1iQMAYVeNSeAQ)下载（百度网盘提取码： wgc6）。下载后将权重放到 weights/ 下。
+
+
+
+### Step4：运行程序
+
+```bash
+# 运行 paddle paddle 程序
+python main_pp.py
+
+# 运行 torch 程序
+python main_torch.py
+```
+
+此时程序会将结果图片存放到 images/ 文件夹下。
+
+
+
+# 五、模型信息
+
+关于模型的其他信息，可以参考下表：
+
+| 信息     | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| 发布者   | Qijing Yuan                                                  |
+| 时间     | 2021.10                                                      |
+| 框架版本 | 2.1.3                                                        |
+| 应用场景 | AlexNet 可视化                                               |
+| 支持硬件 | CPU、GPU                                                     |
+| 下载链接 | [预训练模型](https://pan.baidu.com/s/1HkRrEsjpn1iQMAYVeNSeAQ) |
+| 在线运行 | [NoteBook](https://aistudio.baidu.com/aistudio/projectdetail/2512233?contributionType=1) |
 
