@@ -38,8 +38,8 @@ class Backprop:
             self.relu_outputs = []
             self._register_relu_hooks()
 
-        # opt = paddle.optimizer.SGD(parameters=self.model.parameters())
-        # opt.clear_grad()
+        opt = paddle.optimizer.SGD(parameters=self.model.parameters())
+        opt.clear_grad()
 
         self.gradients = paddle.zeros(input_.shape)
 
