@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     model = alexnet(True)
     model.eval()
-    from saliency.backprop import Backprop
+    from saliency.Backprop import Backprop
 
     backprop = Backprop(model)
 

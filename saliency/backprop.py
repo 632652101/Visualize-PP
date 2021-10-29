@@ -82,6 +82,7 @@ class Backprop:
                                              target_class,
                                              guided=guided,
                                              use_gpu=use_gpu)
+
         max_gradients = self.calculate_gradients(input_,
                                                  target_class,
                                                  guided=guided,

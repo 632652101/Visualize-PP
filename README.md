@@ -12,15 +12,31 @@ Deep Inside Convolutional Networks 这篇论文是由Karen Simonyan等人提出�
 
 # 二、复现结果
 
-| torch:                                     |
-| ------------------------------------------ |
-| ![torch](images/airdale_terrier_torch.jpg) |
-| paddle:                                    |
-| ![paddle](images/airdale_terrier_pp.jpg)   |
-
-测试图像存放在 content/images/ 下，可视化图像存放在images/ 下，可视化图像的对比结果存放在 logs/ 下。
 
 
+### Saliency Map 方法
+
+| torch:                                              |
+| --------------------------------------------------- |
+| ![torch](images/method_1/airdale_terrier_torch.jpg) |
+| paddle:                                             |
+| ![paddle](images/method_1/airdale_terrier_pp.jpg)   |
+
+测试图像存放在 content/images/ 下，可视化图像存放在images/method_1/ 下，可视化图像的对比结果存放在 logs/ methd_1/ 下。
+
+
+
+### Class Specific Image Generation 方法
+
+| Paddle:                                                     |
+| ----------------------------------------------------------- |
+| ![ezgif.com-gif-maker](content/ezgif.com-gif-maker.gif)     |
+| Torch:                                                      |
+| ![ezgif.com-gif-maker-2](content/ezgif.com-gif-maker-2.gif) |
+
+每帧的对比结果存放在 logs/method_2/ 下。 
+
+**注*** Class Specific Image Generation 可视化结果对噪声很敏感，会放大网络权重的差异，logs/method_2/ 下的日志显示了这个结果。
 
 # 三、环境依赖
 
@@ -62,10 +78,12 @@ AlexNet的模型权重文件[在此](https://pan.baidu.com/s/1HkRrEsjpn1iQMAYVeN
 
 ```bash
 # 运行 paddle paddle 程序
-python main_pp.py
+python method_1_pp.py
+python method_2_pp.py
 
 # 运行 torch 程序
-python main_torch.py
+python method_1_torch.py
+python method_2_torch.py
 ```
 
 此时程序会将结果图片存放到 images/ 文件夹下。
@@ -86,3 +104,12 @@ python main_torch.py
 | 下载链接 | [预训练模型](https://pan.baidu.com/s/1HkRrEsjpn1iQMAYVeNSeAQ) |
 | 在线运行 | [NoteBook](https://aistudio.baidu.com/aistudio/projectdetail/2512233?contributionType=1) |
 
+
+
+# 六、其他
+
+### 参考 repo
+
+[FlashTorch](https://github.com/MisaOgura/flashtorch) A Python visualization toolkit, built with PyTorch, for neural networks in PyTorch.
+
+**注***：本repo主要实现了Saliency Maps，参考repo中实现了 guided backpropagation 方法，该方法出自论文，Striving for Simplicity: The All Convolutional Net <https://arxiv.org/pdf/1412.6806.pdf>， 本repo没有实现该方法。
