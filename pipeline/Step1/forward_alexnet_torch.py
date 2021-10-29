@@ -20,4 +20,4 @@ if __name__ == '__main__':
     # print(out.detach().numpy())
     #
     reprod_logger.add("out", out.cpu().detach().numpy())
-    reprod_logger.save("npy/forward_torch.npy")
+    reprod_logger.save("forward_torch.npy")
